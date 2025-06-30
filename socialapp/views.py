@@ -5,9 +5,16 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.utils import timezone
+from django.http import HttpResponse
+from django.core.management import call_command
 
 from socialapp.forms import (AvaliaForms,PostagemForms,ComentarioForm)
 from socialapp.models import (Avalia,Postagem,Comentario,Curtida)
+
+def trigger_migrate(request):
+    call_command('migrate')
+    return HttpResponse("Migrações executadas com sucesso!")
+    
 @csrf_exempt
 def sugerir_tags(request):
     if request.method == 'POST':
