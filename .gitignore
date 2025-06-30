@@ -1,0 +1,17 @@
+# Ambientes virtuais
+venv/
+env/
+myenv/
+*.pyc
+__pycache__/
+
+# Banco local
+*.sqlite3
+
+# Arquivos estáticos gerados
+/staticfiles/
+/media/
+
+# Configs locais
+.env
+.vscode/
