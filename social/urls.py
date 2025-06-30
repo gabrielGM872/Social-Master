@@ -41,7 +41,7 @@ urlpatterns = [
     path('cadastro/', cadastro_usuario, name='cadastro'),
     path('login/', login_usuario, name='login'),
     path('logout/', logout_usuario, name='logout'),
-    path('forcar-migracao/', trigger_migrate),
+    #path('forcar-migracao/', trigger_migrate),
 
 
 
