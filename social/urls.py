@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include, re_path
-from socialapp.views import index, sobre,contato, new_avalia, editar_avalia, deleta_avalia
-from socialapp.views import new_post, deleta_post, editar_post, post_detail, add_comment, toggle_like, sugerir_tags
-from usuario.views import cadastro_usuario, login_usuario, logout_usuario
+from socialapp.views import index, sobre,contato, new_avalia, editar_avalia, deleta_avalia 
+from socialapp.views import new_post, deleta_post, editar_post, post_detail, add_comment, toggle_like, sugerir_tags, trigger_migrate
+from usuario.views import cadastro_usuario, login_usuario, logout_usuario, path
 
 urlpatterns = [
     path('sugerir-tags/', sugerir_tags, name='sugerir_tags'),
@@ -41,6 +41,7 @@ urlpatterns = [
     path('cadastro/', cadastro_usuario, name='cadastro'),
     path('login/', login_usuario, name='login'),
     path('logout/', logout_usuario, name='logout'),
+    path('forcar-migracao/', trigger_migrate),
 
 
 
