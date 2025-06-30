@@ -1,1 +1,1 @@
-web: bash -c "python manage.py migrate && gunicorn social.wsgi"
+web: gunicorn social.wsgi
