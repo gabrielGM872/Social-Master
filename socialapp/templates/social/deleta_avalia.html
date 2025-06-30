@@ -1,0 +1,36 @@
+{% extends 'social/base.html' %}
+
+{% block content %}
+  <h1>Deletar Avaliação</h1>
+  <p>Tem certeza que deseja deletar a avaliação: <strong>{{ avaliado.valor_avalia }}</strong>?</p>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="submit" value="Deletar" class="btn btn-danger">
+    <a href="{% url 'new_avalia' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+
+  <hr>
+
+  <h2>Outras Avaliações</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Status da Avaliação</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ava in avas %}
+      <tr>
+        <td>{{ ava.id_avalia }}</td>
+        <td>{{ ava.valor_avalia }}</td>
+        <td><a href="{% url 'editar_avalia' ava.id_avalia %}">Editar</a></td>
+        <td><a href="{% url 'deleta_avalia' ava.id_avalia %}">Excluir</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}

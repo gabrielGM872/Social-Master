@@ -1,0 +1,43 @@
+{% extends 'social/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+  <h1>Deletar Postagem</h1>
+  <p>Tem certeza que deseja deletar a postagem: <strong>{{ post.titulo_postagem }}</strong>?</p>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="submit" value="Deletar" class="btn btn-danger">
+    <a href="{% url 'new_post' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+
+  <hr>
+
+  <h2>Outras postagens</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Autor</th>
+        <th>Data</th>
+        <th>Título</th>
+        <th>Conteúdo</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in posts %}
+      <tr>
+        <td>{{ p.id_postagem }}</td>
+        <td>{{ p.autor_postagem }}</td>
+        <td>{{ p.data_postagem }}</td>
+        <td>{{ p.titulo_postagem }}</td>
+        <td>{{ p.conteudo_postagem }}</td>
+        <td><a href="{% url 'editar_post' p.id_postagem %}">Editar</a></td>
+        <td><a href="{% url 'deleta_post' p.id_postagem %}">Excluir</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}

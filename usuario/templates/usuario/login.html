@@ -1,0 +1,22 @@
+{% extends 'social/base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="card container">
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="id_username">Usuário</label><br>
+      <input type="text" name="username" id="id_username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="id_password">Senha</label><br>
+      <input type="password" name="password" id="id_password" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Entrar</button>
+    <a href="{% url 'cadastro' %}"class="btn btn-primary">
+        Criar Conta
+    </a>
+  </div>
+  </form>
+{% endblock content %}
