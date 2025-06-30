@@ -1,0 +1,40 @@
+.masthead {
+  background-image: url('/static/assets/img/home-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+body.dark-mode .masthead {
+  background-image: none !important;
+  background-color: #121212 !important;
+  color: #f1f1f1;
+}
+
+body.dark-mode,
+body.dark-mode .container,
+body.dark-mode .masthead {
+  background-color: #121212 !important;
+  color: #f1f1f1 !important;
+}
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode .navbar,
+.dark-mode .card,
+.dark-mode .masthead,
+.dark-mode footer {
+  background-color: #1e1e1e !important;
+  color: #f1f1f1;
+}
+
+.dark-mode a {
+  color: #bb86fc;
+}
+
+.dark-mode .form-control {
+  background-color: #2c2c2c;
+  color: #fff;
+  border-color: #444;
+}
