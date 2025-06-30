@@ -4,3 +4,4 @@ psutil==6.1.1
 pillow==10.3.0
 sqlparse==0.5.3
 django-widget-tweaks==1.5.0
+whitenoise
