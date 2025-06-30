@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+import traceback
 from django.utils import timezone
 from django.http import HttpResponse
 from django.core.management import call_command
@@ -12,8 +13,12 @@ from socialapp.forms import (AvaliaForms,PostagemForms,ComentarioForm)
 from socialapp.models import (Avalia,Postagem,Comentario,Curtida)
 
 def trigger_migrate(request):
-    call_command('migrate')
-    return HttpResponse("Migrações executadas com sucesso!")
+    try:
+        call_command('migrate')
+        return HttpResponse("Migrações executadas com sucesso!")
+    except Exception as e:
+        erro = traceback.format_exc()
+        return HttpResponse(f"Erro ao rodar migrate:<br><pre>{erro}</pre>")
     
 @csrf_exempt
 def sugerir_tags(request):
